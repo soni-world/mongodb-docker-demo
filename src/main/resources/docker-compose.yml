@@ -1,0 +1,14 @@
+version: "3"
+services:
+  springboot-mongo-test:
+    image: mongo:latest
+    container_name: "springboot-mongo-test"
+    ports:
+      - 27017:27017
+  mongodb-app:
+    image: mongodb-app:1.0
+    container_name: "mongodb-app"
+    ports:
+      - 8080:8080
+    links:
+      - springboot-mongo-test
